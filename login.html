@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<style>
+    /* Basic styling for demonstration purposes */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        width: 300px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"],
+    input[type="button"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <form id="loginForm" action="#" method="post">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div>
+            <input type="submit" value="Sign Up" id="submit" style="display: block">
+            <input type="button" value="Cancel" id="cancel" style="display: block">
+        </div>
+    </form>
+</div>
+
+<script>
+    var userId = document.querySelector("#id");
+    userId.onchange = checkId;
+    function checkId(){
+        if(userId.value.length < 4 || userId.value.length >15){
+            alert("4~15자리 영문과 숫자를 사용하세요.");
+            userId.select();
+        }else{
+            alert("입력값: " + userId.value);
+        }
+    }
+    var pw1 = document.querySelector("#password");
+    var pw2 = document.querySelector("#confirmPassword");
+    pw1.onchange = checkPw
+
+    function checkPw(){
+        if(pw1.value.length < 8 || pw1.value.length > 15){
+            alert("비밀번호는 8자리 ~ 15자리");
+            pw1.value="";
+            pw1.focus();
+        }else{
+
+        }
+    }
+
+    pw2.onchange = comparePw;
+
+    function comparePw(){
+        if(pw1.value != pw2.value){
+            alert("비밀번호가 서로 다릅니다.");
+            //pw1.value="";
+            pw2.value="";
+            pw2.focus();
+        }else if(pw1.value == pw2.value){
+            alert("비밀번호 같음");
+        }
+    }
+
+</script>
+</body>
+</html>
